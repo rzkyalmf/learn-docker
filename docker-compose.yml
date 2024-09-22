@@ -10,28 +10,6 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgresql://myuser:mypassword@db:5432/mydb?schema=public
+      - DATABASE_URL=postgresql://postgres:postgres@103.76.120.242:5432/postgres?schema=public
     # Konfigurasi container yang akan digabungkan
     # Jika depends_on gagal deploy, maka container ini akan gagal deploy juga
-    depends_on:
-      - db
-
-  # Services "database" imagenya
-  db:
-    # Menggunakan image postgres yang sudah di install
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_DB=mydb
-      - POSTGRES_USER=myuser
-      - POSTGRES_PASSWORD=mypassword
-    # mapping volume yang telah kita buat kedalam container db
-    volumes:
-      - type: volume
-        source: learn-docker-volume-2
-        target: /var/lib/postgresql/data
-
-volumes:
-  learn-docker-volume-2:
-    name: learn-docker-volume-2
