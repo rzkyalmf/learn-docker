@@ -24,7 +24,6 @@ COPY ./ ./
 
 # 7. Copy prisma juga to Workdir, ./ = app
 COPY ./prisma ./
-RUN npx prisma db push
 
 # 8. Lakukan generate prisma & 
 RUN npx prisma generate
