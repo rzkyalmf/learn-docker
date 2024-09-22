@@ -15,6 +15,7 @@ COPY package*.json ./
 # karna internetnya server biasanya kencang
 RUN npm install
 
+
 # 5. Membuat ENV database untuk dimasukan ke environment sistemnya docker
 ENV DATABASE_URL postgresql://myuser:mypassword@localhost:5432/mydb?schema=public
 
@@ -23,6 +24,7 @@ COPY ./ ./
 
 # 7. Copy prisma juga to Workdir, ./ = app
 COPY ./prisma ./
+RUN npx prisma db push
 
 # 8. Lakukan generate prisma & 
 RUN npx prisma generate

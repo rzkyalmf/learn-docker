@@ -5,7 +5,7 @@ export default async function Home() {
 
   return (
     <div>
-      <h1>Hello World !</h1>
+      <h1>Hello World 2 !</h1>
       <div>
         {notes.map((note) => (
           <p key={note.id}>{note.content}</p>
